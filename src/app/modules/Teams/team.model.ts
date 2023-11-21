@@ -1,5 +1,7 @@
+import { IUser } from "./../User/user.interface";
 import mongoose, { Schema, model } from "mongoose";
 import { ITeam, TeamModel } from "./team.interface";
+import { UserSchema } from "../User/user.model";
 
 export const TeamSchema = new Schema<ITeam, TeamModel>(
   {
@@ -7,12 +9,7 @@ export const TeamSchema = new Schema<ITeam, TeamModel>(
       type: String,
       required: true
     },
-    users: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-      }
-    ]
+    members: [UserSchema]
   },
   {
     timestamps: true,
@@ -21,4 +18,4 @@ export const TeamSchema = new Schema<ITeam, TeamModel>(
     }
   }
 );
-export const Book = model<ITeam, TeamModel>("Team", TeamSchema);
+export const Team = model<ITeam, TeamModel>("Team", TeamSchema);

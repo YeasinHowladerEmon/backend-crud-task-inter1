@@ -1,9 +1,9 @@
-import mongoose, { Model } from "mongoose";
+import  { Model } from "mongoose";
+import { IUser } from "../User/user.interface";
 
 export type ITeam = {
     name:string;
-    users: mongoose.Schema.Types.ObjectId[];
+    members: IUser[];
 }
-
 
 export type TeamModel = Model<ITeam, Record<string, unknown>>

@@ -7,9 +7,10 @@ import {
   paginationHelpers
 } from "../../../helpers/paginationHelpers";
 const createUser = async (payload: Partial<IUser>): Promise<IUser | null> => {
-  const userId = await User.find().sort({ id: -1 }).limit(1);
+  const userId = await User.find({}).sort({ id: -1 }).limit(1);
   console.log(userId[0].id);
   payload.id = userId[0].id + 1;
+  console.log(payload);
   const result = await User.create(payload);
   return result;
 };

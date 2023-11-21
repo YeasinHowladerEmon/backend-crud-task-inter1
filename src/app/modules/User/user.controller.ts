@@ -8,6 +8,7 @@ import pick from "../../../helpers/pick";
 import { paginationFields, userFilterableFields } from "./user.constant";
 
 const createUser = catchAsync(async (req: Request, res: Response) => {
+  console.log(req.body);
   const result = await UserService.createUser(req.body);
   sendResponse<IUser>(res, {
     statusCode: httpStatus.OK,

@@ -5,7 +5,6 @@ export const UserSchema = new Schema<IUser, UserModel>(
   {
     id: {
       type: Number,
-      required: true
     },
     first_name: {
       type: String,
